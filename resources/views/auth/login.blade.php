@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="background-color:red;">
         <div class="row" style="margin-top:45px">
             <div class="col-md-4 col-md-offset-4 ">
                 <h4>Login | Authenticate</h4><hr>
