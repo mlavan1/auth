@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="row" style="margin-top:45px">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-4 col-md-offset-4 ">
                 <h4>Login | Authenticate</h4><hr>
                 <form action="{{ route('auth.check') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -37,5 +37,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>
