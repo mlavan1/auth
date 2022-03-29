@@ -6,18 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
+    <style>
+        .formdiv{
+            background-color:#fff;
+            padding:50px;
+            border-radius:25px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+            0 5px 10px rgba(0,0,0,0.1),
+            0 5px 10px rgba(0, 0, 0, 0.1),
+            0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body style="background-color:#f5f5f5">
     <div class="container">
         <div class="row" style="margin-top:45px">
-            <div class="col-md-4 col-md-offset-4" style="background-color:#fff;
-            padding:50px;
-            border-radius:10px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-            0 5px 10px rgba(0,0,0,0.1),
-            0 5px 10px rgba(0, 0, 0, 0.1),
-            0 5px 10px rgba(0, 0, 0, 0.1);                  
-">
+            <div class="col-md-4 col-md-offset-4 formdiv">
                 <h4>Register</h4><hr>
                 <form action="{{ route('auth.save') }}" method="post">
                     @csrf

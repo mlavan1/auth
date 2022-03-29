@@ -167,6 +167,9 @@ nav .profile-details .admin_name{
   margin: 0 10px;
   white-space: nowrap;
 }
+a:hover{
+  color:#2697ff;
+}
 nav .profile-details i{
   font-size: 25px;
   color: #333;

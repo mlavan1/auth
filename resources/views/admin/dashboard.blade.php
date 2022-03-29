@@ -3,7 +3,6 @@
 @section('heading') Home | Dashboard @endsection --}}
 
 <!DOCTYPE html>
-<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
   <head>
       <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
@@ -101,8 +100,8 @@
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name">Prem Shahi</span>
-        <i class='bx bx-chevron-down' ></i>
+        <span class="admin_name"><a href="#" style="text-decoration:none;">Mahendran Lavan</span>
+        <i class='bx bx-chevron-down' ></i></a>
       </div>
     </nav>
 
