@@ -31,8 +31,8 @@ Route::get('/auth/logout',[MainController::class,'logout'])->name('auth.logout')
 Route::group(['middleware'=>['AuthCheck']],function(){
 
     Route::get('/auth/login','App\Http\Controllers\MainController@login')->name('auth.login');
-    
-    // Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
+
+    Route::get('/auth/index',[MainController::class,'indexPage'])->name('auth.index');
 
     Route::get('/auth/register',[MainController::class,'register'])->name('auth.register');
 

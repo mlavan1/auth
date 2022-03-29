@@ -38,14 +38,18 @@
              
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profile
+                My Account {{--({{ $LoginUserInfo['name'] }}) --}}<img src="{{ asset('profile-image.png') }}" alt="" height="25px" width="30px">
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="javascript:void(0)">Email : {{ $LoginUserInfo['email'] }}</a>
-                <a class="dropdown-item" href="javascript:void(0)">User Name : {{ $LoginUserInfo['name'] }}</a>
+              <div class="dropdown-menu" style="width:150px" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="javascript:void(0)">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)">Preferences</a>
+                <a class="dropdown-item" href="javascript:void(0)">My cart</a>
+                <a class="dropdown-item" href="javascript:void(0)">Messages</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('auth.logout') }}" style="color:red">Logout</a>
               </div>
+             
             </li>
             
           </ul>

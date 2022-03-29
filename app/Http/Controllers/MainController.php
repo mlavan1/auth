@@ -14,6 +14,9 @@ class MainController extends Controller
     public function register(){
         return view('auth.register');
     }
+    public function indexPage(){
+        return view('auth.index');
+    }
     
 
     // REGISTRATION PAGE
@@ -21,8 +24,11 @@ class MainController extends Controller
         $request->validate([
             'name'      =>  'required',
             'email'     =>  'required|email|unique:admins',
-            'password'  =>  'required|min:5|max:12'
+            'password'  =>  'required|min:5|max:12|confirmed',
         ]);
+
+        
+
         $admin = new Admin();
         $admin->name = $request->name;
         $admin->email = $request->email;
@@ -79,7 +85,7 @@ class MainController extends Controller
     public function logout(){
         if (session()->has('LoggedUser')){
             session()->pull('LoggedUser');
-            return redirect('/auth/login');
+            return redirect('/auth/index');
         }
     }
 
