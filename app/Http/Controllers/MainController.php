@@ -17,6 +17,9 @@ class MainController extends Controller
     public function indexPage(){
         return view('auth.index');
     }
+    public function profile(){
+        return view('admin.profile');
+    }
     
 
     // REGISTRATION PAGE

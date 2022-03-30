@@ -5,19 +5,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-      <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
+   <style>
+     .profile_name{
+       text-decoration: none;
+     }
+   </style>
 <body>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">AB Company</span>
+      <span class="logo_name">C++ powered</span>
     </div>
       <ul class="nav-links">
         <li>
@@ -35,31 +40,21 @@
         <li>
           <a href="#">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Services</span>
+            <span class="links_name">Order list</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Analytics</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Stock</span>
-          </a>
-        </li>
+        
+        
         <li>
           <a href="#">
             <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Total order</span>
+            <span class="links_name">My orders</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
-            <span class="links_name">Contact</span>
+            <span class="links_name">Contacts</span>
           </a>
         </li>
         <li>
@@ -71,13 +66,13 @@
         <li>
           <a href="#">
             <i class='bx bx-heart' ></i>
-            <span class="links_name">Favrorites</span>
+            <span class="links_name">Favourites</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
+            <span class="links_name">Settings</span>
           </a>
         </li>
         <li class="log_out">
@@ -100,8 +95,8 @@
       </div>
       <div class="profile-details">
         <!--<img src="images/profile.jpg" alt="">-->
-        <span class="admin_name"><a href="#" style="text-decoration:none;">Mahendran Lavan</span>
-        <i class='bx bx-chevron-down' ></i></a>
+        <span class="admin_name"><a class="profile_name" href="{{ route('admin.profile') }}">Mahendran Lavan</a></span>
+        <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
 
@@ -287,6 +282,4 @@
 
 </body>
 </html>
-
-
 

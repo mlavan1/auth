@@ -34,6 +34,8 @@ Route::group(['middleware'=>['AuthCheck']],function(){
 
     Route::get('/auth/index',[MainController::class,'indexPage'])->name('auth.index');
 
+    Route::get('/admin/profile',[MainController::class,'profile'])->name('admin.profile');
+    
     Route::get('/auth/register',[MainController::class,'register'])->name('auth.register');
 
     Route::get('/admin/dashboard',[MainController::class,'dashboard'])->name('auth.dashboard');
