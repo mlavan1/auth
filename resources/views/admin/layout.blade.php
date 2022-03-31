@@ -1,77 +1,142 @@
+{{-- @extends('admin.layout')
+@section('title') Dashboard @endsection
+@section('heading') Home | Dashboard @endsection --}}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN Link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>@yield('title')</title>
-    <style>
-        *{
-            font-size:15px;
-        }
-        .align-nav{
-            position: absolute;
-            right:10%;
-        }
-    </style>
-</head>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+     .profile_name{
+       text-decoration: none;
+     }
+     .size{
+       font-size: 14px;
+     }
+   </style>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" style="font-size:20px;" href="#">@yield('heading')</a>
-        <div style="margin-left:700px;" class="align-nav" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto" >
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('auth.dashboard') }}">Home&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('auth.about') }}">About&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('auth.contact') }}">Contact&nbsp;&nbsp;&nbsp;&nbsp;</a>
-              </li>
-             
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Account {{--({{ $LoginUserInfo['name'] }}) --}}<img src="{{ asset('profile-image.png') }}" alt="" height="25px" width="30px">
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">C++ powered</span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="{{ route('auth.dashboard') }}" class="active">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('admin.profile') }}">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">My profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">Product</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Order list</span>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="links_name">My orders</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-heart' ></i>
+            <span class="links_name">Favourites</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Settings</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="{{ route('auth.logout') }}">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">@yield('heading')</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search' ></i>
+      </div>
+      <div class="profile-details">
+        <!--<img src="images/profile.jpg" alt="">-->
+       
+        <ul class="navbar-nav mr-auto" >
+          <li class="nav-item dropdown">
+            {{-- <span class="admin_name"><a class="profile_name" href="{{ route('admin.profile') }}" style="text-decoration:none;">Mahendran Lavan</a></span> --}}
+              <a class="nav-link dropdown-toggle " style="margin-left:1em;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mahendran Lavan
               </a>
-              <div class="dropdown-menu" style="width:150px" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="javascript:void(0)">Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0)">Preferences</a>
-                <a class="dropdown-item" href="javascript:void(0)">My cart</a>
-                <a class="dropdown-item" href="javascript:void(0)">Messages</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('auth.logout') }}" style="color:red">Logout</a>
-              </div>
-             
-            </li>
-            
-          </ul>
-          
-        </div>
-      </nav>
-    {{-- <div class="container">
-        <div class="col-md-8 col-md-offset-0" style="background-color:rgb(255, 255, 255)">
-            <table class="table table-hover">
-                <thead>
-                    <th>Name</th>
-                    <th>email</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ $LoginUserInfo['name'] }}</td>
-                        <td>{{ $LoginUserInfo['email'] }}</td>
-                        <td><a href="{{ route('auth.logout') }}">Logout</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div> --}}    
+            <div class="dropdown-menu" style="width:150px" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item size" href="{{ route('admin.profile') }}"> Edit profile</a>
+              <div class="dropdown-divider"></div>
+
+              <a class="dropdown-item size" href="{{ route('auth.logout') }}" style="color:red">Logout</a>
+            </div>
+           
+          </li></ul>
+      </div>
+    </nav>
+
+    @yield('content')
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if(sidebar.classList.contains("active")){
+        sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    }
+    else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+ </script>
+
 </body>
 </html>
+
