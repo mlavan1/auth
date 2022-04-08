@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Validator;  
+use Illuminate\Validation\Rule;
 
 class MainController extends Controller
 {
+    public function saveDetails(Request $request)
+    {
+        $userInfo=Admin::where('email','=',$request->email);
+        dd($userInfo);
+        // $admin= new Admin;
+        // $admin-> name   =   $request    ->input('inputName');
+        // $admin-> email  =   $request    ->input('inputEmail');
+        // $admin->password=   nullable();    
+        // $admin-> save();
+        // return response()->json(['success'=>'Book saved successfully.']);
+    }
     public function login (){
         return view('auth.login');
     }
@@ -18,7 +31,12 @@ class MainController extends Controller
         return view('auth.index');
     }
     public function profile(){
-        return view('admin.profile');
+        $data=['LoginUserInfo'=>Admin::where('id','=', session('LoggedUser'))->first()];
+        return view('admin.profile',$data);
+    }
+    public function edit(){
+        $details=User::all();
+        return response()->json($details);
     }
     
 
@@ -28,6 +46,7 @@ class MainController extends Controller
             'name'      =>  'required',
             'email'     =>  'required|email|unique:admins',
             'password'  =>  'required|min:5|max:12|confirmed',
+            'password'  =>  'required|min:5|max:12|' 
         ]);
 
         
@@ -43,7 +62,9 @@ class MainController extends Controller
         else{
             return back()->with('error',"Invalid email or password");
         }
-        //0776254981
+        //0776254981 // MIS Anton Number
+
+        
 
 
     }

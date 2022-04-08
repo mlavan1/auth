@@ -24,9 +24,9 @@ Route::post('/auth/save',[MainController::class,'save'])->name('auth.save');
 
 Route::post('/auth/check',[MainController::class,'check'])->name('auth.check');
 
-
-
 Route::get('/auth/logout',[MainController::class,'logout'])->name('auth.logout');
+
+
 
 Route::group(['middleware'=>['AuthCheck']],function(){
 
@@ -45,4 +45,8 @@ Route::group(['middleware'=>['AuthCheck']],function(){
     Route::get('/admin/about',[MainController::class,'about'])->name('auth.about');
 
     Route::get('/admin/contact',[MainController::class,'contact'])->name('auth.contact');
+
+    Route::post('/admin/saveDetails',[MainController::class,'saveDetails'])->name('admin.details');    
+    
+    Route::get('edit/{id}',[MainController::class,'edit']);
 });
